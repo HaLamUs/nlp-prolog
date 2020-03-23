@@ -1,0 +1,91 @@
+?- np(X,Y, [cuon, sach, hay], []).
+X = np(q(cuon), nn(sach), jj(hay)),
+Y = book.
+
+?- vp(X,Y, [co,cuon, sach, hay], []).
+X = vp(vb(co), np(q(cuon), nn(sach), jj(hay))),
+Y = human.
+
+?- vp(X,Y, Z, []).
+X = vp(vb(co), np(nn(sach))),
+Y = human,
+Z = [co, sach] ;
+X = vp(vb(co), np(q(cuon), nn(sach), jj(hay))),
+Y = human,
+Z = [co, cuon, sach, hay].
+
+====================================
+?- np(X, Y, [mot, cuon, sach, hay],[]).
+X = np(un(mot), q(cuon), nn(sach), jj(hay)),
+Y = book.
+
+?- vp(X, Y, [co, mot, cuon, sach, hay],[]).
+X = vp(vb(co), np(un(mot), q(cuon), nn(sach), jj(hay))),
+Y = human.
+
+?- vp(X, Y, Z,[]).
+X = vp(vb(co), np(nn(sach))),
+Y = human,
+Z = [co, sach] ;
+X = vp(vb(co), np(un(mot), q(cuon), nn(sach), jj(hay))),
+Y = human,
+Z = [co, mot, cuon, sach, hay].
+
+?- s(X, Y,[]).
+X = s(np(nnp(nam)), vp(vb(co), np(nn(sach)))),
+Y = [nam, co, sach] ;
+X = s(np(nnp(nam)), vp(vb(co), np(un(mot), q(cuon), nn(sach), jj(hay)))),
+Y = [nam, co, mot, cuon, sach, hay] ;
+false.
+
+nnp(nnp(nam), human) --> [nam].
+un(un(mot), book) --> [mot].
+q(q(cuon), book) --> [cuon].
+nn(nn(sach), book) --> [sach].
+jj(jj(hay), book) --> [hay].
+vb(vb(co), human, book) --> [co].
+np(np(X), R) --> nnp(X, R).
+np(np(X), R) --> nn(X, R).
+np(np(X,Y,Z, U), R) --> un(X, R), q(Y, R), nn(Z, R), jj(U, R).
+vp(vp(X, Y), P) --> vb(X, P, R), np(Y, R).
+s(s(X, Y)) --> np(X, R), vp(Y, R).
+
+
+nnp(nnp(nam), human) --> [nam].
+un(un(mot), book) --> [mot].
+un(un(mot), cat) --> [mot].
+q(q(cuon), book) --> [cuon].
+q(q(con), cat) --> [con].
+nn(nn(sach), book) --> [sach].
+nn(nn(meo), cat) --> [meo].
+jj(jj(hay), book) --> [hay].
+jj(jj(thong_minh), cat) --> [thong_minh].
+vb(vb(co), human, book) --> [co].
+vb(vb(nuoi), human, cat) --> [nuoi].
+np(np(X), R) --> nnp(X, R).
+np(np(X), R) --> nn(X, R).
+np(np(X, Y, Z, U), R) --> un(X, R), q(Y, R), nn(Z, R), jj(U, R).
+vp(vp(X, Y), P) --> vb(X, P, R), np(Y, R).
+s(s(X, Y)) --> np(X, R), vp(Y, R).
+
+
+nnp(nnp(nam), human) --> [nam].
+un(un(mot), book) --> [mot].
+un(un(mot), cat) --> [mot].
+q(q(cuon), book) --> [cuon].
+q(q(con), cat) --> [con].
+nn(nn(sach), book) --> [sach].
+nn(nn(meo), cat) --> [meo].
+jj(jj(hay), book) --> [hay].
+jj(jj(thong_minh), cat) --> [thong_minh].
+rb(rb(rat), book) --> [rat].
+rb(rb(rat), cat) --> [rat].
+advp(advp(X, Y), book) --> rb(X, book), jj(Y, book).
+advp(advp(X, Y), cat) --> rb(X, cat), jj(Y, cat).
+vb(vb(co), human, book) --> [co].
+vb(vb(nuoi), human, cat) --> [nuoi].
+vp(vp(X, Y), P) --> vb(X, P, R), np(Y, R).
+np(np(X), R) --> nnp(X, R).
+np(np(X), R) --> nn(X, R).
+np(np(X, Y, Z, U), R) --> un(X, R), q(Y, R), nn(Z, R), advp(U, R).
+s(s(X, Y)) --> np(X, R), vp(Y, R).
