@@ -1,6 +1,7 @@
 # nlp-prolog
 This project contains all my prolog code which was implemented during my Master's programs
-# contents
+
+## contents
 This includes 3 parts:
 1. computer science puzzles
     * family problems: Who is your grandfather?
@@ -17,7 +18,12 @@ This includes 3 parts:
    * semantic constraint
    * prolog lambda
    * ubg - unification based grammar 
-# notes
+
+## notes
 Most notes in vietnamese cause most of courses examples using vietnamese
-# author
-Lam Ha
+
+---
+## Author
+
+This repo was developed by [@lamha](https://github.com/HaLamUs). 
+Follow or connect with me on [my LinkedIn](https://www.linkedin.com/in/lamhacs). 
